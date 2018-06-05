@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler problem 3</title>
+</head>
+<body>
+
+<div>
+    Каков самый большой делитель числа 600851475143, являющийся простым числом?
+
+    <br>
+    The prime factors of 13195 are 5, 7, 13 and 29.
+
+    What is the largest prime factor of the number 600851475143 ?
+</div>
+
+<script>
+    function eratosphen(x) {
+        var array = [];
+        for (var i=2; i<x; i++) {
+            if(typeof array[i] === 'undefined') {
+                array[i]=true;
+                for(var k = i+i; k<x; k+=i) {
+                    array[k]=false;
+                }
+            }
+        }
+        return array;
+
+    }
+
+    function denominator(z) {
+        var t = ~~(Math.sqrt(z));
+        var arr = eratosphen(t);
+        for(var j=t; j>=0; j--){
+            if( (z % j == 0)  && arr[j] ) {
+                return j;
+            }
+        }
+    }
+
+    console.log(denominator(600851475143)); //6857
+
+</script>
+
+</body>
+</html>
