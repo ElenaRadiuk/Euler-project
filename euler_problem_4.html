@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler problem 4</title>
+</head>
+<body>
+
+<div>
+    Число-палиндром с обеих сторон (справа налево и слева направо) читается одинаково. Самое большое число-палиндром, полученное умножением двух двузначных чисел – 9009 = 91 × 99.
+
+    Найдите самый большой палиндром, полученный умножением двух трёхзначных чисел.
+
+    <br>
+
+    A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+    Find the largest palindrome made from the product of two 3-digit numbers.
+
+</div>
+
+<script>
+    var number = 999;
+
+    function palindrom(number) {
+        var ar =[0];
+        for(var i=number; i>99; i--){
+
+            var multiplier = 0;
+            var multiplierReverse = '';
+            var multiplierString = '';
+
+            for(var j=i;j>99;j--){
+                multiplier = j*i;
+                multiplierString = '' + multiplier;
+
+                multiplierReverse = multiplierString.split("").reverse().join("");
+
+                if (multiplierReverse == multiplierString && (multiplier > ar[0])) {
+                    // console.log(multiplier);
+                    ar[0] = multiplier;
+                    // console.log(j);
+                    // console.log(i);
+                }
+
+            }
+        }
+        return ar;
+    }
+
+    console.log(palindrom(number)); //906609
+
+</script>
+
+</body>
+</html>
