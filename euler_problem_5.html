@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler problem 5</title>
+</head>
+<body>
+
+<div>
+    2520 - самое маленькое число, которое делится без остатка на все числа от 1 до 10.
+
+    Какое самое маленькое число делится нацело на все числа от 1 до 20?
+
+    <br>
+
+    2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+    What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+</div>
+
+
+<script>
+
+    function commonMinNumber(start,end) {
+        for (var i = end*(end-1); i<22222222222; i+=end) {
+            var ar = [];
+            labelCancelLoops:
+                for (var j=end; j<=end; j--) {
+                    if (i%j !==0) {
+                        break labelCancelLoops;
+                    } else if (i%j == 0){
+                        ar.push(i);
+                        if(ar.length ==(end-1)){
+                            return ar[18];
+                        }
+                    } else break labelCancelLoops;
+                }
+        }
+        return 'number not found';
+    }
+
+    console.log(commonMinNumber(2,20)); //232792560
+
+</script>
+
+
+</body>
+</html>
