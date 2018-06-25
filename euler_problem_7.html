@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler problem 7 - 10001st prime</title>
+</head>
+<body>
+
+<pre>
+    Выписав первые шесть простых чисел, получим 2, 3, 5, 7, 11 и 13. Очевидно, что 6-ое простое число - 13.
+
+    Какое число является 10001-ым простым числом?
+
+
+    10001st prime
+
+    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+    What is the 10 001st prime number?
+
+</pre>
+
+
+<script>
+
+
+    function prime10001(x) {
+        var array = [];
+        var count=0, num=0;
+
+        for (var i=2; i<x; i++) {
+            if(typeof array[i] === 'undefined') {
+                array[i]=true;
+
+                for(var k = i+i; k<x; k+=i) {
+                    array[k]=false;
+                }
+
+                if (count<10001) {
+                    num = i;
+                    count++;
+                }
+            }
+        }
+        console.log(num);
+        return count;
+    }
+
+    console.log(prime10001(400000));  //104743
+
+
+</script>
+
+
+</body>
+</html>
